@@ -32,6 +32,7 @@
 		43D4CE7E2290CEC300AE5F25 /* LifeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE7D2290CEC300AE5F25 /* LifeSpan.swift */; };
 		43D4CE802290CF2D00AE5F25 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE7F2290CF2D00AE5F25 /* Coordinates.swift */; };
 		43D4CE8322915FB200AE5F25 /* DispatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8222915FB200AE5F25 /* DispatchHelper.swift */; };
+		43D4CE85229181D800AE5F25 /* ResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE84229181D800AE5F25 /* ResultEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		43D4CE7D2290CEC300AE5F25 /* LifeSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeSpan.swift; sourceTree = "<group>"; };
 		43D4CE7F2290CF2D00AE5F25 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		43D4CE8222915FB200AE5F25 /* DispatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchHelper.swift; sourceTree = "<group>"; };
+		43D4CE84229181D800AE5F25 /* ResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				43D4CE652290686C00AE5F25 /* CoordinatesEntity.swift */,
 				43D4CE672290688300AE5F25 /* LifeSpanEntity.swift */,
 				43D4CE6B2290A69A00AE5F25 /* PlacesResultEntity.swift */,
+				43D4CE84229181D800AE5F25 /* ResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				43D4CE722290AA5300AE5F25 /* RepositoryAssembly.swift in Sources */,
 				43D4CE642290418B00AE5F25 /* AreaEntity.swift in Sources */,
 				43D4CE5A22902F1400AE5F25 /* PlacesDataRepository.swift in Sources */,
+				43D4CE85229181D800AE5F25 /* ResultEntity.swift in Sources */,
 				43D4CE572290253600AE5F25 /* ApiClient.swift in Sources */,
 				43D4CE6022902FF100AE5F25 /* Place.swift in Sources */,
 				43D4CE6C2290A69A00AE5F25 /* PlacesResultEntity.swift in Sources */,

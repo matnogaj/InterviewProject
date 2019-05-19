@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PlacesResultEntity: Codable {
+struct PlacesResultEntity: ResultEntity {
     let count: Int
     let offset: Int
     let places: [PlaceEntity]
