@@ -13,8 +13,8 @@ enum Endpoint {
 }
 
 protocol IApiClient {
-    func executeRequest<T: ResultEntity>(endpoint: Endpoint, completion: @escaping (T) -> ())
-    func executeRequest<T: ResultEntity>(endpoint: Endpoint, offset: Int, count: Int, completion: @escaping ([T]) -> ())
+    func executeRequest<T: ResultEntity>(endpoint: Endpoint, completion: @escaping ([T]) -> ())
+//    func executeRequest<T: ResultEntity>(endpoint: Endpoint, offset: Int, count: Int, completion: @escaping ([T]) -> ())
 }
 
 class ApiClient: IApiClient {
@@ -68,7 +68,7 @@ class ApiClient: IApiClient {
         return urlRequest
     }
 
-    func executeRequest<T: ResultEntity>(endpoint: Endpoint, completion: @escaping (T) -> ()) {
+    func executeRequest<T: ResultEntity>(endpoint: Endpoint, completion: @escaping ([T]) -> ()) {
         let url = createUrl(endpoint: endpoint, limit: limit, offset: 0)
 
         let task = session.dataTask(with: url) {
@@ -76,7 +76,14 @@ class ApiClient: IApiClient {
 
             if let data = data {
                 if let result = try? JSONDecoder().decode(T.self, from: data) {
-                    completion(result)
+                    if self.limit < result.count { // There's more to download
+                        self.executeRequest(endpoint: endpoint, offset: self.limit, count: result.count, completion: { (rrr: [T]) in
+                            let tmp = [result] + rrr
+                            completion(tmp)
+                        })
+                    } else {
+                        completion([result])
+                    }
                 } else {
                     // FIXME add error handling
                 }
@@ -85,7 +92,8 @@ class ApiClient: IApiClient {
         task.resume()
     }
 
-    func executeRequest<T: ResultEntity>(endpoint: Endpoint, offset: Int, count: Int, completion: @escaping ([T]) -> ()) {
+    // FIXME review and cleanup
+    private func executeRequest<T: ResultEntity>(endpoint: Endpoint, offset: Int, count: Int, completion: @escaping ([T]) -> ()) {
         let remaining = count - offset
 
         let requestCount = Int(ceilf(Float(remaining)/Float(limit)))

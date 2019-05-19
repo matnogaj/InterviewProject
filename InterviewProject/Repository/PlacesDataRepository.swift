@@ -22,16 +22,16 @@ class PlaceDataRepository: PlacesRepository {
     func searchPlaces(query: String, response: @escaping ([Place]) -> ()) {
         apiClient.executeRequest(
             endpoint: .searchPlaces(query: query),
-            completion: { (result: PlacesResultEntity) in // FIXME weak self
-                if result.count > 20 {
-                    // FIXME move this inside ApiClient
-                    self.apiClient.executeRequest(endpoint: .searchPlaces(query: query), offset: 20, count: result.count, completion: { (result: [PlacesResultEntity]) in
-                        print("Received remaining places: \(result.count) separate results")
-                    })
-                } else {
-                    let places = result.places.map { $0.toPlace() }
-                    response(places)
+            completion: { (result: [PlacesResultEntity]) in // FIXME weak self
+                let sortedResult = result.sorted(by: { (left, right) -> Bool in
+                    left.offset < right.offset
+                })
+
+                sortedResult.forEach {
+                    print("\($0.offset)")
                 }
+                let places = sortedResult.flatMap { $0.places }.map { $0.toPlace() }
+                response(places)
         })
     }
 
