@@ -19,6 +19,16 @@ struct Place {
     let lifeSpan: LifeSpan
 }
 
+extension Place: Hashable {
+    static func == (lhs: Place, rhs: Place) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 extension PlaceEntity {
     func toPlace() -> Place {
         return Place(id: id,
