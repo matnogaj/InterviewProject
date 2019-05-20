@@ -9,57 +9,83 @@
 import Foundation
 
 class SearchViewModel {
-    init(repository: PlacesRepository = RepositoryAssembly.shared.resolve()) {
-        self.repository = repository
+    private struct Consts {
+        static let referenceYear = 1990
+        static let refreshInterval: TimeInterval = 1.0
     }
 
-    private let referenceYear = 1990
-
     private let repository: PlacesRepository
-
     private var placesRefreshTimer: Timer?
 
     var onUpdate: (([Place])->()) = { _ in }
     var onError: ((Error)->()) = { _ in }
     var onProgress: ((Bool)->()) = { _ in }
 
+    init(repository: PlacesRepository = RepositoryAssembly.shared.resolve()) {
+        self.repository = repository
+    }
+
     func search(text: String) {
         onProgress(true)
+        onUpdate([])
 
-        repository.searchPlaces(query: text, response: { (places: [Place]) in
-            print("Received places: \(places.count)")
+        repository.searchPlaces(query: text, response: { [weak self] (placesResult: Result<[Place]>) in
+            if let places = placesResult.result {
+                let initialPlacesToShow = places.filter { place in
+                    if let year = place.lifeSpan.year {
+                        return year > Consts.referenceYear
+                    }
+                    return false
+                }
 
-            let initialPlacesToShow = places.filter { place in
+                runOnUiThread { [weak self] in
+                    self?.onProgress(false)
+                    self?.onUpdate(initialPlacesToShow)
+                    self?.startTimer(initialPlacesToShow: initialPlacesToShow)
+                }
+            } else {
+                runOnUiThread { [weak self] in
+                    self?.onProgress(false)
+                    self?.onError(placesResult.error ?? AppError("Unknown error"))
+                }
+            }
+        })
+    }
+
+    func clear() {
+        placesRefreshTimer?.invalidate()
+        onUpdate([])
+    }
+
+    private func startTimer(initialPlacesToShow: [Place]) {
+        guard !initialPlacesToShow.isEmpty else {
+            return
+        }
+        let startTime = Date.timeIntervalSinceReferenceDate
+        placesRefreshTimer?.invalidate()
+
+        placesRefreshTimer = Timer.scheduledTimer(
+            withTimeInterval: Consts.refreshInterval,
+            repeats: true,
+            block: { [weak self] timer in
+            let elapsedSeconds = Date.timeIntervalSinceReferenceDate - startTime
+
+            let placesToShow = initialPlacesToShow.filter { place in
                 if let year = place.lifeSpan.year {
-                    return year > self.referenceYear
+                    return Double(year - Consts.referenceYear) > elapsedSeconds
                 }
                 return false
             }
 
-            runOnUiThread {
-                self.onProgress(false)
-                self.onUpdate(initialPlacesToShow)
+            self?.onUpdate(placesToShow)
 
-                let startTime = Date.timeIntervalSinceReferenceDate
-                self.placesRefreshTimer?.invalidate()
-                self.placesRefreshTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-                    let secondsDiff = Date.timeIntervalSinceReferenceDate - startTime
-                    print("Timer: \(secondsDiff)")
-
-                    let placesToShow = initialPlacesToShow.filter { place in
-                        if let year = place.lifeSpan.year {
-                            return Double(year - self.referenceYear) > secondsDiff
-                        }
-                        return false
-                    }
-
-                    self.onUpdate(placesToShow)
-
-                    if placesToShow.isEmpty {
-                        timer.invalidate()
-                    }
-                })
+            if placesToShow.isEmpty {
+                timer.invalidate()
             }
         })
+    }
+
+    deinit {
+        placesRefreshTimer?.invalidate()
     }
 }

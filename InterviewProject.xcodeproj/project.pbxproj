@@ -33,6 +33,9 @@
 		43D4CE802290CF2D00AE5F25 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE7F2290CF2D00AE5F25 /* Coordinates.swift */; };
 		43D4CE8322915FB200AE5F25 /* DispatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8222915FB200AE5F25 /* DispatchHelper.swift */; };
 		43D4CE85229181D800AE5F25 /* ResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE84229181D800AE5F25 /* ResultEntity.swift */; };
+		43D4CE89229296FA00AE5F25 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE88229296FA00AE5F25 /* Result.swift */; };
+		43D4CE8B22929D6C00AE5F25 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8A22929D6C00AE5F25 /* ApiError.swift */; };
+		43D4CE8D2292A41F00AE5F25 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8C2292A41F00AE5F25 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		43D4CE7F2290CF2D00AE5F25 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		43D4CE8222915FB200AE5F25 /* DispatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchHelper.swift; sourceTree = "<group>"; };
 		43D4CE84229181D800AE5F25 /* ResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultEntity.swift; sourceTree = "<group>"; };
+		43D4CE88229296FA00AE5F25 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		43D4CE8A22929D6C00AE5F25 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		43D4CE8C2292A41F00AE5F25 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +178,9 @@
 		43D4CE552290251F00AE5F25 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				43D4CE88229296FA00AE5F25 /* Result.swift */,
 				43D4CE562290253600AE5F25 /* ApiClient.swift */,
+				43D4CE8A22929D6C00AE5F25 /* ApiError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 				43D4CE6D2290A76E00AE5F25 /* AreaType.swift */,
 				43D4CE7D2290CEC300AE5F25 /* LifeSpan.swift */,
 				43D4CE7F2290CF2D00AE5F25 /* Coordinates.swift */,
+				43D4CE8C2292A41F00AE5F25 /* AppError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,11 +383,13 @@
 				43D4CE642290418B00AE5F25 /* AreaEntity.swift in Sources */,
 				43D4CE5A22902F1400AE5F25 /* PlacesDataRepository.swift in Sources */,
 				43D4CE85229181D800AE5F25 /* ResultEntity.swift in Sources */,
+				43D4CE8B22929D6C00AE5F25 /* ApiError.swift in Sources */,
 				43D4CE572290253600AE5F25 /* ApiClient.swift in Sources */,
 				43D4CE6022902FF100AE5F25 /* Place.swift in Sources */,
 				43D4CE6C2290A69A00AE5F25 /* PlacesResultEntity.swift in Sources */,
 				43D4CE7C2290CBC200AE5F25 /* BaseAssembly.swift in Sources */,
 				43D4CE2822901F8E00AE5F25 /* AppDelegate.swift in Sources */,
+				43D4CE89229296FA00AE5F25 /* Result.swift in Sources */,
 				43D4CE5E22902FC500AE5F25 /* PlaceEntity.swift in Sources */,
 				43D4CE702290A77800AE5F25 /* Area.swift in Sources */,
 				43D4CE8322915FB200AE5F25 /* DispatchHelper.swift in Sources */,
@@ -387,6 +398,7 @@
 				43D4CE802290CF2D00AE5F25 /* Coordinates.swift in Sources */,
 				43D4CE6E2290A76E00AE5F25 /* AreaType.swift in Sources */,
 				43D4CE782290C00600AE5F25 /* SearchViewModel.swift in Sources */,
+				43D4CE8D2292A41F00AE5F25 /* AppError.swift in Sources */,
 				43D4CE7E2290CEC300AE5F25 /* LifeSpan.swift in Sources */,
 				43D4CE762290BDF800AE5F25 /* ViewModelAssembly.swift in Sources */,
 				43D4CE662290686C00AE5F25 /* CoordinatesEntity.swift in Sources */,
@@ -565,7 +577,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GB8AAF5L8W;
 				INFOPLIST_FILE = InterviewProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,7 +596,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GB8AAF5L8W;
 				INFOPLIST_FILE = InterviewProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

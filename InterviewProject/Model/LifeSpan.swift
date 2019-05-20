@@ -18,6 +18,7 @@ extension LifeSpanEntity {
     func toLifeSpan() -> LifeSpan {
         var year: Int?
         if let dateString = begin {
+            // Manual parsing is more reliable in this case than using DateFormatter.
             if let index = dateString.firstIndex(of: "-") {
                 let yearString = dateString[..<index]
                 year = Int(yearString)

@@ -31,14 +31,15 @@ extension Place: Hashable {
 
 extension PlaceEntity {
     func toPlace() -> Place {
-        return Place(id: id,
-                     type: type?.toPlaceType(),
-                     typeId: typeId,
-                     score: score,
-                     name: name,
-                     coordinates: coordinates?.toCoordinates(),
-                     area: area?.toArea(),
-                     lifeSpan: lifeSpan.toLifeSpan()
+        return Place(
+            id: id,
+            type: type?.toPlaceType(),
+            typeId: typeId,
+            score: score,
+            name: name,
+            coordinates: coordinates?.toCoordinates(),
+            area: area?.toArea(),
+            lifeSpan: lifeSpan.toLifeSpan()
         )
     }
 }

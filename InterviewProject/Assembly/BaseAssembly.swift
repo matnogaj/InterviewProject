@@ -8,18 +8,23 @@
 
 import Foundation
 
-class BaseAssembly {
-    private var array: [Any] = []
+protocol IAssembly {
+    func register<T>(_ object: T)
+    func resolve<T>() -> T
+}
+
+class BaseAssembly: IAssembly {
+    private var assembly: [Any] = []
 
     func register<T>(_ object: T) {
-        array.append(object)
+        assembly.append(object)
     }
 
     func resolve<T>() -> T {
-        let aa = array.first { $0 is T } as? T
-        guard let tmp = aa else {
-            preconditionFailure("Missing")
+        let object = assembly.first { $0 is T } as? T
+        guard let result = object else {
+            preconditionFailure("Couldn't find item of type \(T.self) in assembly")
         }
-        return tmp
+        return result
     }
 }

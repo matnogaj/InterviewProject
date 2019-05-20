@@ -19,12 +19,13 @@ struct Area {
 
 extension AreaEntity {
     func toArea() -> Area {
-        return Area(id: id,
-                    type: type.toAreaType() ?? .unknown,
-                    typeId: typeId,
-                    name: name,
-                    sortName: sortName,
-                    lifeSpan: lifeSpan.toLifeSpan()
+        return Area(
+            id: id,
+            type: type.toAreaType() ?? .unknown,
+            typeId: typeId,
+            name: name,
+            sortName: sortName,
+            lifeSpan: lifeSpan.toLifeSpan()
         )
     }
 }

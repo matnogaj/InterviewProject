@@ -9,7 +9,6 @@
 import Foundation
 
 struct LifeSpanEntity: Codable {
-
     // Example dates:
     // 1973-04-14
     // 1959-09

@@ -12,23 +12,39 @@ import MapKit
 class SearchViewController: UIViewController {
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
     private var displayedPlaces: [Place : MKAnnotation] = [:]
 
-    lazy var viewModel: SearchViewModel = ViewModelAssembly.shared.resolve()!
+    lazy var viewModel: SearchViewModel = ViewModelAssembly.shared.resolve()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
         searchTextField?.delegate = self
+        activityIndicatorView.stopAnimating()
 
-        viewModel.onUpdate = { places in
-            let toBeAdded = places.filter { place in
-                return !self.displayedPlaces.keys.contains(place)
+        bindToViewModel()
+    }
+
+    private func clearAnnotations() {
+        mapView.removeAnnotations(mapView.annotations)
+        displayedPlaces = [:]
+    }
+
+    private func bindToViewModel() {
+        viewModel.onUpdate = { [weak self] places in
+            print("onUpdate: \(places.count)")
+            guard let strongSelf = self else {
+                return
             }
 
-            let toBeRemoved = self.displayedPlaces.keys.filter { place in
+            let toBeAdded = places.filter { place in
+                return !strongSelf.displayedPlaces.keys.contains(place)
+            }
+
+            let toBeRemoved = strongSelf.displayedPlaces.keys.filter { place in
                 return !places.contains(place)
             }
 
@@ -38,23 +54,29 @@ class SearchViewController: UIViewController {
                     annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                     annotation.title = place.name
                     annotation.subtitle = place.area?.name
-                    self.displayedPlaces[place] = annotation
-                    self.mapView.addAnnotation(annotation)
+                    strongSelf.displayedPlaces[place] = annotation
+                    strongSelf.mapView.addAnnotation(annotation)
                 }
             }
 
             toBeRemoved.forEach { place in
-                if let annotation = self.displayedPlaces.removeValue(forKey: place) {
-                    self.mapView.removeAnnotation(annotation)
+                if let annotation = strongSelf.displayedPlaces.removeValue(forKey: place) {
+                    strongSelf.mapView.removeAnnotation(annotation)
                 }
             }
         }
-    }
 
-    private func clearAnnotations() {
-        mapView.removeAnnotations(mapView.annotations)
-        displayedPlaces = [:]
+        viewModel.onProgress = { [weak self] progress in
+            if progress {
+                self?.activityIndicatorView.startAnimating()
+            } else {
+                self?.activityIndicatorView.stopAnimating()
+            }
+        }
 
+        viewModel.onError = { [weak self] error in
+            print("Received error: \(error)")
+        }
     }
 }
 
@@ -62,16 +84,13 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
 
-        clearAnnotations()
-
         viewModel.search(text: textField.text ?? "")
         
         return true
     }
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        // Clear all annotations
-        clearAnnotations()
+        viewModel.clear()
         return true
     }
 }

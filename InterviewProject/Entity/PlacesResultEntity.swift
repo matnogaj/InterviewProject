@@ -1,5 +1,5 @@
 //
-//  PlacesResultEntity.swift
+//  PlacesPagingResult.swift
 //  InterviewProject
 //
 //  Created by Mateusz Nogaj on 18/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PlacesResultEntity: ResultEntity {
+struct PlacesPagingResult: PagingResult {
     let count: Int
     let offset: Int
     let places: [PlaceEntity]

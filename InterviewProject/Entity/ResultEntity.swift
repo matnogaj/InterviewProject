@@ -1,5 +1,5 @@
 //
-//  ResultEntity.swift
+//  PagingResult.swift
 //  InterviewProject
 //
 //  Created by Mateusz Nogaj on 19/05/2019.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-// FIXME change name since it has to be a protocol
-protocol ResultEntity: Codable {
+protocol PagingResult: Codable {
     var count: Int { get }
     var offset: Int { get }
 }
