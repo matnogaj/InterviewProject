@@ -31,7 +31,12 @@ class SearchViewModel {
 
         repository.searchPlaces(query: query, response: { [weak self] (placesResult: Result<[Place]>) in
             if let places = placesResult.result {
-                let initialPlacesToShow = places.filter { place in
+                let withoutDuplicates = Dictionary(grouping: places, by: { $0.id }).values.compactMap { $0.first }
+
+                // This should be empty but it's not. Seems like a server issue.
+                print("Found \(places.count - withoutDuplicates.count) duplicates")
+
+                let initialPlacesToShow = withoutDuplicates.filter { place in
                     if let year = place.lifeSpan.year {
                         return year > Consts.referenceYear
                     }
@@ -68,20 +73,20 @@ class SearchViewModel {
             withTimeInterval: Consts.refreshInterval,
             repeats: true,
             block: { [weak self] timer in
-            let elapsedSeconds = Date.timeIntervalSinceReferenceDate - startTime
+                let elapsedSeconds = Date.timeIntervalSinceReferenceDate - startTime
 
-            let placesToShow = initialPlacesToShow.filter { place in
-                if let year = place.lifeSpan.year {
-                    return Double(year - Consts.referenceYear) > elapsedSeconds
+                let placesToShow = initialPlacesToShow.filter { place in
+                    if let year = place.lifeSpan.year {
+                        return Double(year - Consts.referenceYear) > elapsedSeconds
+                    }
+                    return false
+                    }
+
+                self?.onUpdate(placesToShow)
+
+                if placesToShow.isEmpty {
+                    timer.invalidate()
                 }
-                return false
-            }
-
-            self?.onUpdate(placesToShow)
-
-            if placesToShow.isEmpty {
-                timer.invalidate()
-            }
         })
     }
 

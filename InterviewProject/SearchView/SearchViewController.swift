@@ -23,15 +23,16 @@ class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         searchTextField?.delegate = self
-        activityIndicatorView.stopAnimating()
+
+        activityIndicatorView.isHidden = true
 
         bindToViewModel()
     }
 
-    private func clearAnnotations() {
-        mapView.removeAnnotations(mapView.annotations)
-        displayedPlaces = [:]
-    }
+//    private func clearAnnotations() {
+//        mapView.removeAnnotations(mapView.annotations)
+//        displayedPlaces = [:]
+//    }
 
     private func bindToViewModel() {
         viewModel.onUpdate = { [weak self] places in
@@ -64,14 +65,35 @@ class SearchViewController: UIViewController {
 
         viewModel.onProgress = { [weak self] progress in
             if progress {
-                self?.activityIndicatorView.startAnimating()
+                self?.showActivityIndicator()
             } else {
-                self?.activityIndicatorView.stopAnimating()
+                self?.hideActivityIndicator()
             }
         }
 
-        viewModel.onError = { [weak self] error in
+        viewModel.onError = { error in
             print("Received error: \(error)")
+        }
+    }
+
+    private func showActivityIndicator() {
+        activityIndicatorView.alpha = 0.0
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.startAnimating()
+
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.activityIndicatorView.alpha = 1.0
+        }
+    }
+
+    private func hideActivityIndicator() {
+        activityIndicatorView.alpha = 0.0
+
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+            self?.activityIndicatorView.alpha = 0.0
+        }) { [weak self] _ in
+            self?.activityIndicatorView.isHidden = true
+            self?.activityIndicatorView.stopAnimating()
         }
     }
 }
