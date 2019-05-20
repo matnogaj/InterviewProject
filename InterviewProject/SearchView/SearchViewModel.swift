@@ -25,11 +25,11 @@ class SearchViewModel {
         self.repository = repository
     }
 
-    func search(text: String) {
+    func search(query: String) {
         onProgress(true)
         onUpdate([])
 
-        repository.searchPlaces(query: text, response: { [weak self] (placesResult: Result<[Place]>) in
+        repository.searchPlaces(query: query, response: { [weak self] (placesResult: Result<[Place]>) in
             if let places = placesResult.result {
                 let initialPlacesToShow = places.filter { place in
                     if let year = place.lifeSpan.year {

@@ -42,19 +42,38 @@ class ApiClient: IApiClient {
             return
         }
 
-        let task = session.dataTask(with: url) { data, response, error in
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            guard let strongSelf = self else {
+                return
+            }
+
+            if let apiError = strongSelf.hasError(response: response) {
+                completion(Result(error: apiError))
+                return
+            }
+
             if let data = data {
-                if let result = try? JSONDecoder().decode(T.self, from: data) {
-                    if self.limit < result.count { // There's more to download
-                        self.executeMultipleRequests(endpoint: endpoint, offset: self.limit, count: result.count, completion: { (rrr: Result<[T]>) in
-                            let tmp = [result] + (rrr.result ?? [])
-                            completion(Result(result: tmp))
+                do {
+                    let pagingResult = try JSONDecoder().decode(T.self, from: data)
+                    print("Server responded with result count: \(pagingResult.count)")
+                    if strongSelf.limit < pagingResult.count { // There's more to download
+                        strongSelf.executeMultipleRequests(
+                            endpoint: endpoint,
+                            offset: strongSelf.limit,
+                            count: pagingResult.count,
+                            completion: { (remainingPagingResults: Result<[T]>) in
+                                if let results = remainingPagingResults.result {
+                                    let combined = [pagingResult] + results
+                                    completion(Result(result: combined))
+                                } else if let error = remainingPagingResults.error {
+                                    completion(Result(error: error))
+                                }
                         })
                     } else {
-                        completion(Result(result: [result]))
+                        completion(Result(result: [pagingResult]))
                     }
-                } else {
-                    completion(Result(error: ApiError("Error while parsing response")))
+                } catch let decodeError {
+                    completion(Result(error: ApiError("Error while parsing response: \(decodeError)")))
                 }
             } else if let error = error {
                 completion(Result(error: ApiError("API error: \(error)")))
@@ -64,12 +83,12 @@ class ApiClient: IApiClient {
     }
 
     private func executeMultipleRequests<T: PagingResult>(endpoint: Endpoint, offset: Int, count: Int, completion: @escaping (Result<[T]>) -> ()) {
-        let remaining = count - offset
-        let requestCount = Int(ceilf(Float(remaining)/Float(limit)))
+        let remainingPlaces = count - offset
+        var requestIndex = 0
+        let requestCount = Int(ceilf(Float(remainingPlaces)/Float(limit)))
 
         var currentOffset = offset
-        var requestIndex = 0
-        var fullArray: [T] = []
+        var resultsArray: [T] = []
         var hasFailed = false
         while(currentOffset < count) {
             guard let url = createUrlRequest(for: endpoint, limit: limit, offset: currentOffset) else {
@@ -77,24 +96,30 @@ class ApiClient: IApiClient {
                 return
             }
 
-            let task = session.dataTask(with: url) { data, response, error in
+            let task = session.dataTask(with: url) { [weak self] data, response, error in
                 guard !hasFailed else {
                     // One of previous requests has already failed, no need to continue
                     return
                 }
                 requestIndex += 1
 
+                if let apiError = self?.hasError(response: response) {
+                    hasFailed = true
+                    completion(Result(error: apiError))
+                    return
+                }
+
                 if let data = data {
-                    if let result = try? JSONDecoder().decode(T.self, from: data) {
-                        fullArray.append(result)
+                    do {
+                        let result = try JSONDecoder().decode(T.self, from: data)
+                        resultsArray.append(result)
 
                         if requestIndex == requestCount {
-                            completion(Result(result: fullArray))
+                            completion(Result(result: resultsArray))
                         }
-
-                    } else {
+                    } catch let decodeError {
                         hasFailed = true
-                        completion(Result(error: ApiError("Failed to decode reponse data")))
+                        completion(Result(error: ApiError("Failed to decode reponse data: \(decodeError)")))
                     }
                 } else if let error = error {
                     hasFailed = true
@@ -104,6 +129,18 @@ class ApiClient: IApiClient {
             currentOffset += limit
 
             task.resume()
+        }
+    }
+
+    private func hasError(response: URLResponse?) -> ApiError? {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return nil
+        }
+
+        if (200...299).contains(httpResponse.statusCode) {
+            return nil
+        } else {
+            return ApiError("Request failed with HTTP \(httpResponse.statusCode)")
         }
     }
 

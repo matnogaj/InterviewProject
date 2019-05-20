@@ -29,6 +29,9 @@ class PlaceDataRepository: PlacesRepository {
                     })
 
                     let places = sortedResult.flatMap { $0.places }.map { $0.toPlace() }
+
+                    print("Received places from server: \(places.count)")
+
                     response(Result(result: places))
                 } else if let error = placesResult.error {
                     response(Result(error: error))

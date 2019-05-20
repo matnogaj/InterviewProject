@@ -49,11 +49,7 @@ class SearchViewController: UIViewController {
             }
 
             toBeAdded.forEach { place in
-                if let lat = place.coordinates?.latitude, let lon = place.coordinates?.longitude {
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                    annotation.title = place.name
-                    annotation.subtitle = place.area?.name
+                if let annotation = place.toAnnotation() {
                     strongSelf.displayedPlaces[place] = annotation
                     strongSelf.mapView.addAnnotation(annotation)
                 }
@@ -80,11 +76,26 @@ class SearchViewController: UIViewController {
     }
 }
 
+private extension Place {
+    func toAnnotation() -> MKAnnotation? {
+        if let lat = coordinates?.latitude, let lon = coordinates?.longitude {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            annotation.title = name
+            annotation.subtitle = area?.name
+            return annotation
+        }
+        return nil
+    }
+}
+
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
 
-        viewModel.search(text: textField.text ?? "")
+        let query = textField.text ?? ""
+        print("Search places: '\(query)'")
+        viewModel.search(query: query)
         
         return true
     }

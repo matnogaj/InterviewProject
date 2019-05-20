@@ -15,3 +15,9 @@ class AppError: Error {
         self.message = message
     }
 }
+
+extension AppError: CustomStringConvertible {
+    var description: String {
+        return "[AppError] \(message)"
+    }
+}

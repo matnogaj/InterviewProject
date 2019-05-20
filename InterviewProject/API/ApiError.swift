@@ -15,3 +15,9 @@ class ApiError: Error {
         self.message = message
     }
 }
+
+extension ApiError: CustomStringConvertible {
+    var description: String {
+        return "[ApiError] \(message)"
+    }
+}
