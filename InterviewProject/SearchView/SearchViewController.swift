@@ -20,7 +20,6 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
 
         searchTextField?.delegate = self
 
@@ -28,11 +27,6 @@ class SearchViewController: UIViewController {
 
         bindToViewModel()
     }
-
-//    private func clearAnnotations() {
-//        mapView.removeAnnotations(mapView.annotations)
-//        displayedPlaces = [:]
-//    }
 
     private func bindToViewModel() {
         viewModel.onUpdate = { [weak self] places in

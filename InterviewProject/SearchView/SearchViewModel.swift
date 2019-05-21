@@ -15,14 +15,17 @@ class SearchViewModel {
     }
 
     private let repository: PlacesRepository
+    private let scheduler: IScheduler
     private var placesRefreshTimer: Timer?
 
     var onUpdate: (([Place])->()) = { _ in }
     var onError: ((Error)->()) = { _ in }
     var onProgress: ((Bool)->()) = { _ in }
 
-    init(repository: PlacesRepository = RepositoryAssembly.shared.resolve()) {
+    init(repository: PlacesRepository = RepositoryAssembly.shared.resolve(),
+         scheduler: IScheduler = RepositoryAssembly.shared.resolve()) {
         self.repository = repository
+        self.scheduler = scheduler
     }
 
     func search(query: String) {
@@ -43,13 +46,13 @@ class SearchViewModel {
                     return false
                 }
 
-                runOnUiThread { [weak self] in
+                self?.scheduler.runOnUiThread { [weak self] in
                     self?.onProgress(false)
                     self?.onUpdate(initialPlacesToShow)
                     self?.startTimer(initialPlacesToShow: initialPlacesToShow)
                 }
             } else {
-                runOnUiThread { [weak self] in
+                self?.scheduler.runOnUiThread { [weak self] in
                     self?.onProgress(false)
                     self?.onError(placesResult.error ?? AppError("Unknown error"))
                 }
@@ -80,7 +83,7 @@ class SearchViewModel {
                         return Double(year - Consts.referenceYear) > elapsedSeconds
                     }
                     return false
-                    }
+                }
 
                 self?.onUpdate(placesToShow)
 

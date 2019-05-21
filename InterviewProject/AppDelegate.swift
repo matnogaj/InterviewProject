@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let apiClient = ApiClient()
         RepositoryAssembly.shared.register(apiClient)
         RepositoryAssembly.shared.register(PlaceDataRepository(apiClient: apiClient))
+        RepositoryAssembly.shared.register(Scheduler())
 
         ViewModelAssembly.shared.register(SearchViewModel())
 

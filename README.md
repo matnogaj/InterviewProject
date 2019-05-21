@@ -22,3 +22,5 @@ E.g. Requesting places with query "gre":
 * limit 25, 13 requests, 318 total results, 11 duplicates
 * limit 20, 16 requests, 318 total results, 18 duplicates
 <br><br>Requesting max limit 100 seems to be working the best although with results 500+ there are still few duplicates.
+
+4. Timer should be abstracted and injected into `SearchViewModel` so that it can be replaced in Unit Tests.

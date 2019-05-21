@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		435A5CFE2294349C0037F635 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A5CFD2294349C0037F635 /* Scheduler.swift */; };
+		435A5D0022944C7E0037F635 /* TestScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A5CFF22944C7E0037F635 /* TestScheduler.swift */; };
+		435A5D02229467090037F635 /* PlaceDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A5D01229467090037F635 /* PlaceDataRepositoryTests.swift */; };
 		43D4CE2822901F8E00AE5F25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE2722901F8E00AE5F25 /* AppDelegate.swift */; };
 		43D4CE2A22901F8E00AE5F25 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE2922901F8E00AE5F25 /* SearchViewController.swift */; };
 		43D4CE2D22901F8E00AE5F25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D4CE2B22901F8E00AE5F25 /* Main.storyboard */; };
 		43D4CE2F22901F9000AE5F25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43D4CE2E22901F9000AE5F25 /* Assets.xcassets */; };
 		43D4CE3222901F9000AE5F25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D4CE3022901F9000AE5F25 /* LaunchScreen.storyboard */; };
-		43D4CE3D22901F9000AE5F25 /* InterviewProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE3C22901F9000AE5F25 /* InterviewProjectTests.swift */; };
 		43D4CE4822901F9000AE5F25 /* InterviewProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE4722901F9000AE5F25 /* InterviewProjectUITests.swift */; };
 		43D4CE572290253600AE5F25 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE562290253600AE5F25 /* ApiClient.swift */; };
 		43D4CE5A22902F1400AE5F25 /* PlacesDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE5922902F1400AE5F25 /* PlacesDataRepository.swift */; };
@@ -31,11 +33,16 @@
 		43D4CE7C2290CBC200AE5F25 /* BaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE7B2290CBC200AE5F25 /* BaseAssembly.swift */; };
 		43D4CE7E2290CEC300AE5F25 /* LifeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE7D2290CEC300AE5F25 /* LifeSpan.swift */; };
 		43D4CE802290CF2D00AE5F25 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE7F2290CF2D00AE5F25 /* Coordinates.swift */; };
-		43D4CE8322915FB200AE5F25 /* DispatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8222915FB200AE5F25 /* DispatchHelper.swift */; };
 		43D4CE85229181D800AE5F25 /* ResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE84229181D800AE5F25 /* ResultEntity.swift */; };
 		43D4CE89229296FA00AE5F25 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE88229296FA00AE5F25 /* Result.swift */; };
 		43D4CE8B22929D6C00AE5F25 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8A22929D6C00AE5F25 /* ApiError.swift */; };
 		43D4CE8D2292A41F00AE5F25 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8C2292A41F00AE5F25 /* AppError.swift */; };
+		43D4CE8F2293085900AE5F25 /* PlaceEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE8E2293085900AE5F25 /* PlaceEntityTests.swift */; };
+		43D4CE912293096200AE5F25 /* PlaceEntity.json in Resources */ = {isa = PBXBuildFile; fileRef = 43D4CE902293096200AE5F25 /* PlaceEntity.json */; };
+		43D4CE9322930BE700AE5F25 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE9222930BE700AE5F25 /* JsonHelper.swift */; };
+		43D4CE9522930FCA00AE5F25 /* PlacesPagingResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 43D4CE9422930FCA00AE5F25 /* PlacesPagingResult.json */; };
+		43D4CE972293121200AE5F25 /* PlacesPagingResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE962293121200AE5F25 /* PlacesPagingResultTests.swift */; };
+		43D4CE9A2293137200AE5F25 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4CE992293137200AE5F25 /* SearchViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		435A5CFD2294349C0037F635 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		435A5CFF22944C7E0037F635 /* TestScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScheduler.swift; sourceTree = "<group>"; };
+		435A5D01229467090037F635 /* PlaceDataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDataRepositoryTests.swift; sourceTree = "<group>"; };
 		43D4CE2422901F8E00AE5F25 /* InterviewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterviewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D4CE2722901F8E00AE5F25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43D4CE2922901F8E00AE5F25 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +74,6 @@
 		43D4CE3122901F9000AE5F25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43D4CE3322901F9000AE5F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43D4CE3822901F9000AE5F25 /* InterviewProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InterviewProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43D4CE3C22901F9000AE5F25 /* InterviewProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewProjectTests.swift; sourceTree = "<group>"; };
 		43D4CE3E22901F9000AE5F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43D4CE4322901F9000AE5F25 /* InterviewProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InterviewProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D4CE4722901F9000AE5F25 /* InterviewProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewProjectUITests.swift; sourceTree = "<group>"; };
@@ -86,11 +95,16 @@
 		43D4CE7B2290CBC200AE5F25 /* BaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAssembly.swift; sourceTree = "<group>"; };
 		43D4CE7D2290CEC300AE5F25 /* LifeSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeSpan.swift; sourceTree = "<group>"; };
 		43D4CE7F2290CF2D00AE5F25 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
-		43D4CE8222915FB200AE5F25 /* DispatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchHelper.swift; sourceTree = "<group>"; };
 		43D4CE84229181D800AE5F25 /* ResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultEntity.swift; sourceTree = "<group>"; };
 		43D4CE88229296FA00AE5F25 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		43D4CE8A22929D6C00AE5F25 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		43D4CE8C2292A41F00AE5F25 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		43D4CE8E2293085900AE5F25 /* PlaceEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEntityTests.swift; sourceTree = "<group>"; };
+		43D4CE902293096200AE5F25 /* PlaceEntity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceEntity.json; sourceTree = "<group>"; };
+		43D4CE9222930BE700AE5F25 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
+		43D4CE9422930FCA00AE5F25 /* PlacesPagingResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesPagingResult.json; sourceTree = "<group>"; };
+		43D4CE962293121200AE5F25 /* PlacesPagingResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPagingResultTests.swift; sourceTree = "<group>"; };
+		43D4CE992293137200AE5F25 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +174,13 @@
 		43D4CE3B22901F9000AE5F25 /* InterviewProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				43D4CE3C22901F9000AE5F25 /* InterviewProjectTests.swift */,
+				43D4CE9B22934CDE00AE5F25 /* Helpers */,
+				43D4CE98229312BA00AE5F25 /* JsonFiles */,
 				43D4CE3E22901F9000AE5F25 /* Info.plist */,
+				43D4CE8E2293085900AE5F25 /* PlaceEntityTests.swift */,
+				43D4CE962293121200AE5F25 /* PlacesPagingResultTests.swift */,
+				43D4CE992293137200AE5F25 /* SearchViewModelTests.swift */,
+				435A5D01229467090037F635 /* PlaceDataRepositoryTests.swift */,
 			);
 			path = InterviewProjectTests;
 			sourceTree = "<group>";
@@ -242,7 +261,25 @@
 		43D4CE8122915FA100AE5F25 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				43D4CE8222915FB200AE5F25 /* DispatchHelper.swift */,
+				435A5CFD2294349C0037F635 /* Scheduler.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		43D4CE98229312BA00AE5F25 /* JsonFiles */ = {
+			isa = PBXGroup;
+			children = (
+				43D4CE902293096200AE5F25 /* PlaceEntity.json */,
+				43D4CE9422930FCA00AE5F25 /* PlacesPagingResult.json */,
+			);
+			path = JsonFiles;
+			sourceTree = "<group>";
+		};
+		43D4CE9B22934CDE00AE5F25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				43D4CE9222930BE700AE5F25 /* JsonHelper.swift */,
+				435A5CFF22944C7E0037F635 /* TestScheduler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -361,6 +398,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D4CE9522930FCA00AE5F25 /* PlacesPagingResult.json in Resources */,
+				43D4CE912293096200AE5F25 /* PlaceEntity.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +420,7 @@
 				43D4CE2A22901F8E00AE5F25 /* SearchViewController.swift in Sources */,
 				43D4CE722290AA5300AE5F25 /* RepositoryAssembly.swift in Sources */,
 				43D4CE642290418B00AE5F25 /* AreaEntity.swift in Sources */,
+				435A5CFE2294349C0037F635 /* Scheduler.swift in Sources */,
 				43D4CE5A22902F1400AE5F25 /* PlacesDataRepository.swift in Sources */,
 				43D4CE85229181D800AE5F25 /* ResultEntity.swift in Sources */,
 				43D4CE8B22929D6C00AE5F25 /* ApiError.swift in Sources */,
@@ -392,7 +432,6 @@
 				43D4CE89229296FA00AE5F25 /* Result.swift in Sources */,
 				43D4CE5E22902FC500AE5F25 /* PlaceEntity.swift in Sources */,
 				43D4CE702290A77800AE5F25 /* Area.swift in Sources */,
-				43D4CE8322915FB200AE5F25 /* DispatchHelper.swift in Sources */,
 				43D4CE682290688300AE5F25 /* LifeSpanEntity.swift in Sources */,
 				43D4CE6A229068A700AE5F25 /* PlaceType.swift in Sources */,
 				43D4CE802290CF2D00AE5F25 /* Coordinates.swift in Sources */,
@@ -409,7 +448,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43D4CE3D22901F9000AE5F25 /* InterviewProjectTests.swift in Sources */,
+				43D4CE9322930BE700AE5F25 /* JsonHelper.swift in Sources */,
+				435A5D02229467090037F635 /* PlaceDataRepositoryTests.swift in Sources */,
+				43D4CE8F2293085900AE5F25 /* PlaceEntityTests.swift in Sources */,
+				43D4CE972293121200AE5F25 /* PlacesPagingResultTests.swift in Sources */,
+				43D4CE9A2293137200AE5F25 /* SearchViewModelTests.swift in Sources */,
+				435A5D0022944C7E0037F635 /* TestScheduler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

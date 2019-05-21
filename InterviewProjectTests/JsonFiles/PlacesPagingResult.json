@@ -1,0 +1,482 @@
+{
+   "created":"2019-05-20T13:20:06.949Z",
+   "count":128,
+   "offset":60,
+   "places":[
+      {
+         "id":"958d335e-2e17-4b77-9077-335426014817",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":67,
+         "name":"Greenhouse Studio",
+         "disambiguation":"London",
+         "area":{
+            "id":"f03d09b3-39dc-4083-afd6-159e3f0d462f",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"London",
+            "sort-name":"London",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"739b2e2b-b37d-46cc-87f8-a840a5b62209",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":67,
+         "name":"Greener Mastering",
+         "address":"Pir II, Kai 13B, 7010 Trondheim",
+         "coordinates":{
+            "latitude":"63.440826",
+            "longitude":"10.410318"
+         },
+         "area":{
+            "id":"4c093436-be96-4317-a82f-733938485084",
+            "type":"Municipality",
+            "type-id":"17246454-5ac4-36a1-b81a-4753eb2dab20",
+            "name":"Trondheim",
+            "sort-name":"Trondheim",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"898d4cdb-8bdc-412b-80bf-502653590f7f",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":67,
+         "name":"Greenpoint Studio",
+         "area":{
+            "id":"a71b0d32-7752-49e9-8594-2247ad6ac12c",
+            "type":"District",
+            "type-id":"84039871-5e47-38ca-a66a-45e512c8290f",
+            "name":"Brooklyn",
+            "sort-name":"Brooklyn",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "begin":"1990",
+            "ended":null
+         }
+      },
+      {
+         "id":"2413fa0f-6a59-4f14-9ffa-a3ec1aac34f0",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":67,
+         "name":"Greene St. Recording",
+         "address":"112 Greene St. in SoHo, NYC",
+         "coordinates":{
+            "latitude":"40.7246",
+            "longitude":"-73.999469"
+         },
+         "area":{
+            "id":"74e50e58-5deb-4b99-93a2-decbb365c07f",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"New York",
+            "sort-name":"New York",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "end":"2001",
+            "ended":true
+         }
+      },
+      {
+         "id":"1a3f6931-1db4-41d4-96fd-da5605cb3c75",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":67,
+         "name":"Greenmount Studios",
+         "address":"Interplay Theatre Armley Ridge Road Leeds LS12 3LE",
+         "coordinates":{
+            "latitude":"53.798297",
+            "longitude":"-1.59789"
+         },
+         "area":{
+            "id":"116e3eb1-2b14-42c9-91a1-7a2510dcc4b3",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Leeds",
+            "sort-name":"Leeds",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "begin":"2001",
+            "ended":null
+         }
+      },
+      {
+         "id":"eda97a9d-6845-460e-bc1a-fd4fc9f1d812",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":67,
+         "name":"Greenfields Forever",
+         "area":{
+            "id":"e8e317a1-268c-4e46-9db1-f10af959ffca",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Amsterdam",
+            "sort-name":"Amsterdam",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"25c0acb4-08d9-4b2b-8e88-3bcbf3f39a63",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":67,
+         "name":"Greenhouse Studios",
+         "disambiguation":"Wuppertal",
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"3b294b93-c78a-4c1d-bbcd-e69b7d8e71f3",
+         "type":"Venue",
+         "type-id":"cd92781a-a73f-30e8-a430-55d7521338db",
+         "score":66,
+         "name":"Offord Hall: The Green Room",
+         "area":{
+            "id":"0d9c82c4-b772-4075-9ee1-5b595674da5a",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Aurora",
+            "sort-name":"Aurora",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"7fe01b68-442a-4588-8533-c39cc035184d",
+         "type":"Educational institution",
+         "type-id":"882d46c9-625c-4061-891c-22dd412744db",
+         "score":66,
+         "name":"University of Wisconsinâ€“Green Bay",
+         "address":"2420 Nicolet Dr, Green Bay, WI 54311",
+         "coordinates":{
+            "latitude":"44.53",
+            "longitude":"-87.92083"
+         },
+         "area":{
+            "id":"75bf8b02-83f6-4e6e-87de-148faac5c246",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Green Bay",
+            "sort-name":"Green Bay",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "begin":"1965",
+            "ended":null
+         }
+      },
+      {
+         "id":"760c9d88-3971-4e96-b116-99340f4c6770",
+         "type":"Venue",
+         "type-id":"cd92781a-a73f-30e8-a430-55d7521338db",
+         "score":66,
+         "name":"Backstage at the Green Hotel",
+         "address":"2 Muirs, Kinross KY13 8AS, Kinross and Perth, Scotland, UK",
+         "coordinates":{
+            "latitude":"56.208306",
+            "longitude":"-3.424833"
+         },
+         "area":{
+            "id":"d7b53147-3d23-4497-b519-2068886311a5",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Kinross",
+            "sort-name":"Kinross",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"1a430b2f-556c-4e61-8f22-94cc3b1f1f6a",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":66,
+         "name":"Greenpoint Recording Company",
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"9b2c3278-eee4-4945-a285-cddaab0167c5",
+         "type":"Indoor arena",
+         "type-id":"a77c11f6-82fa-3cc0-9041-ac60e5f6e024",
+         "score":66,
+         "name":"Greenville Memorial Auditorium",
+         "address":"401 East North Street, Greenville, SC 29601",
+         "coordinates":{
+            "latitude":"34.851667",
+            "longitude":"-82.393889"
+         },
+         "area":{
+            "id":"1bc1aeec-9eab-4517-aa23-1f59248590c1",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Greenville",
+            "sort-name":"Greenville",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "begin":"1958-12-01",
+            "end":"1997",
+            "ended":true
+         }
+      },
+      {
+         "id":"3318f270-d2ab-40c4-9ac5-f3b10a590e44",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":66,
+         "name":"Evergreen Recording Studios",
+         "area":{
+            "id":"6c6a147d-4c26-409c-9d26-543836ed57f8",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Burbank",
+            "sort-name":"Burbank",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":true
+         }
+      },
+      {
+         "id":"72359d33-c4e6-430b-ad0a-c77f5c226f9b",
+         "type":"Other",
+         "type-id":"a0df5ead-0bd6-33d8-8444-855a9f3e9970",
+         "score":66,
+         "name":"Greenbelt Festival Grounds",
+         "disambiguation":"Castle Ashby, 1984â€“1992",
+         "area":{
+            "id":"c760c972-e88f-4e37-8c0d-8b12c7512408",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Castle Ashby",
+            "sort-name":"Castle Ashby",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "begin":"1984",
+            "end":"1992",
+            "ended":true
+         }
+      },
+      {
+         "id":"e884e2cc-1a4e-4766-b736-063952ecc299",
+         "type":"Studio",
+         "type-id":"05fa6a09-ff92-3d34-bdbb-5141d3c24f38",
+         "score":66,
+         "name":"The Greene Room",
+         "area":{
+            "id":"1f40c6e1-47ba-4e35-996f-fe6ee5840e62",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Los Angeles",
+            "sort-name":"Los Angeles",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"492973f7-3292-4122-b2f1-e21bd30af2b1",
+         "type":"Other",
+         "type-id":"a0df5ead-0bd6-33d8-8444-855a9f3e9970",
+         "score":65,
+         "name":"Harold Lloyd Estate",
+         "address":"1740 Green Acres Drive, Beverly Hills, CA",
+         "coordinates":{
+            "latitude":"34.088106",
+            "longitude":"-118.426939"
+         },
+         "area":{
+            "id":"73d8cbdd-3149-4cb6-a36d-1ef2036a8b88",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Beverly Hills",
+            "sort-name":"Beverly Hills",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "begin":"1928",
+            "ended":null
+         },
+         "aliases":[
+            {
+               "sort-name":"Greenacres",
+               "type-id":"fb68f9a2-622c-319b-83b0-bbff4127cdc5",
+               "name":"Greenacres",
+               "locale":null,
+               "type":"Place name",
+               "primary":null,
+               "begin-date":null,
+               "end-date":null
+            }
+         ]
+      },
+      {
+         "id":"b3d1b99e-f278-4545-a15a-5acbcc34a823",
+         "type":"Educational institution",
+         "type-id":"882d46c9-625c-4061-891c-22dd412744db",
+         "score":65,
+         "name":"Greenwhich House Music School",
+         "area":{
+            "id":"74e50e58-5deb-4b99-93a2-decbb365c07f",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"New York",
+            "sort-name":"New York",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         }
+      },
+      {
+         "id":"5115075f-3750-405b-95aa-3d84e2b60d14",
+         "score":65,
+         "name":"University of Greenwich",
+         "address":"Park Row, London, SE10 9LS",
+         "coordinates":{
+            "latitude":"51.4851",
+            "longitude":"-0.003905"
+         },
+         "area":{
+            "id":"4e959966-25d5-4159-81f9-14833d70dbc2",
+            "type":"District",
+            "type-id":"84039871-5e47-38ca-a66a-45e512c8290f",
+            "name":"Woolwich",
+            "sort-name":"Woolwich",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "ended":null
+         },
+         "aliases":[
+            {
+               "sort-name":"Thames Polytechnic",
+               "name":"Thames Polytechnic",
+               "locale":null,
+               "type":null,
+               "primary":null,
+               "begin-date":null,
+               "end-date":null
+            }
+         ]
+      },
+      {
+         "id":"c651ad63-f8dc-46f9-8a33-7335a734ea4e",
+         "type":"Educational institution",
+         "type-id":"882d46c9-625c-4061-891c-22dd412744db",
+         "score":65,
+         "name":"University of North Carolina at Greensboro",
+         "coordinates":{
+            "latitude":"36.0695",
+            "longitude":"-79.8114"
+         },
+         "area":{
+            "id":"7fafba3d-8607-4a50-94f0-4b20a9afab84",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Greensboro",
+            "sort-name":"Greensboro",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "begin":"1891",
+            "ended":null
+         }
+      },
+      {
+         "id":"6d166bfd-8a33-4eb3-bd29-2c7c5683fb81",
+         "type":"Venue",
+         "type-id":"cd92781a-a73f-30e8-a430-55d7521338db",
+         "score":64,
+         "name":"Le Gymnase 1er Ã©tage",
+         "address":"4177, rue Saint-Denis, MontrÃ©al, QC H2W 2M7",
+         "coordinates":{
+            "latitude":"45.521827",
+            "longitude":"-73.577923"
+         },
+         "area":{
+            "id":"c3cc624e-b963-49cf-ad0b-e318cb341963",
+            "type":"City",
+            "type-id":"6fd8f29a-3d0a-32fc-980d-ea697b69da78",
+            "name":"Montreal",
+            "sort-name":"Montreal",
+            "life-span":{
+               "ended":null
+            }
+         },
+         "life-span":{
+            "end":"2014",
+            "ended":true
+         },
+         "aliases":[
+            {
+               "sort-name":"Green Room",
+               "name":"Green Room",
+               "locale":null,
+               "type":null,
+               "primary":null,
+               "begin-date":null,
+               "end-date":null
+            }
+         ]
+      }
+   ]
+}
